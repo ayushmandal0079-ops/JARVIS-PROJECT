@@ -1,0 +1,150 @@
+/* FUTURISTIC FONT */
+body {
+    margin: 0;
+    background: black;
+    font-family: 'Orbitron', sans-serif;
+    color: #00eaff;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* HOLOGRAPHIC BACKGROUND */
+.background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse at center, #000000 0%, #0b0b0b 100%);
+    z-index: -1;
+}
+
+/* Floating particles */
+.background::after {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(#00eaff33 2px, transparent 2px);
+    background-size: 50px 50px;
+    animation: floatParticles 20s linear infinite;
+}
+
+@keyframes floatParticles {
+    0% { transform: translate(0,0); }
+    100% { transform: translate(-50px, -50px); }
+}
+
+/* TITLE */
+.title {
+    margin-top: 40px;
+    font-size: 32px;
+    text-shadow: 0 0 20px #00eaff, 0 0 40px #00eaff;
+}
+
+/* CORE */
+.core {
+    width: 250px;
+    height: 250px;
+    margin: 60px auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* HOLOGRAPHIC WAVE */
+.wave {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    border: 2px solid #00eaff33;
+    animation: wave 2.5s ease-out infinite;
+    opacity: 0.5;
+}
+
+/* ROTATING RING */
+.ring {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    border: 6px solid transparent;
+    border-top: 6px solid #00eaffaa;
+    border-right: 6px solid #00eaffaa;
+    box-shadow: 0 0 30px #00eaff;
+}
+
+/* INNER PULSING CORE */
+.inner-core {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #00eaff 0%, transparent 70%);
+    animation: pulse 2s infinite;
+}
+
+/* WAVEFORM BARS */
+.waveform {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    pointer-events: none;
+}
+
+.bar {
+    width: 4px;
+    height: 20px;
+    background: #00eaff;
+    border-radius: 2px;
+    animation: waveAnim 1s ease-in-out infinite;
+    animation-delay: calc(var(--i) * 0.1s);
+}
+
+@keyframes waveAnim {
+    0%,100% { transform: scaleY(0.3); opacity: 0.5; }
+    50% { transform: scaleY(1.5); opacity: 1; }
+}
+
+/* STATUS TEXT */
+.status {
+    margin-top: 30px;
+    font-size: 14px;
+    text-shadow: 0 0 10px #00eaff;
+    min-height: 50px;
+}
+
+/* CONTROL ICONS */
+.controls {
+    position: fixed;
+    bottom: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.icon {
+    font-size: 32px;
+    color: #00eaff;
+    cursor: pointer;
+    transition: 0.3s;
+    text-shadow: 0 0 10px #00eaff, 0 0 20px #00eaff, 0 0 30px #00eaff;
+}
+
+.icon:hover {
+    transform: scale(1.2);
+    text-shadow: 0 0 20px #00eaff, 0 0 40px #00eaff, 0 0 60px #00eaff;
+}
+
+/* MIC GLOW WHEN ACTIVE */
+.mic.active {
+    text-shadow: 0 0 50px #00eaff, 0 0 100px #00eaff;
+}
+
+/* ANIMATIONS */
+@keyframes rotate { 0%{transform:rotate(0deg);} 100%{transform:rotate(360deg);} }
+@keyframes pulse { 0%{box-shadow:0 0 20px #00eaff;} 50%{box-shadow:0 0 60px #00eaff;} 100%{box-shadow:0 0 20px #00eaff;} }
+@keyframes wave { 0%{transform:scale(1);opacity:0.5;} 50%{transform:scale(1.5);opacity:0.2;} 100%{transform:scale(2);opacity:0;} }
